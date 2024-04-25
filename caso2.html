@@ -88,7 +88,7 @@
 
                 let formData = new FormData();
                 formData.append("idCliente", localStorage.getItem("cliente"));
-                const response = await fetch('http://localhost/API_Concurso/respuesta', {
+                const response = await fetch('http://3.92.77.152/API_Concurso/respuesta', {
                     method: 'POST',
                     body: formData
                 });
@@ -117,7 +117,7 @@
                 formData.append("idRespuesta", localStorage.getItem("idRespuesta"));
                 formData.append("respuesta", respuesta);
                 formData.append("tipoRes", 2);
-                const response = await fetch('http://localhost/API_Concurso/setRespuesta', {
+                const response = await fetch('http://3.92.77.152/API_Concurso/setRespuesta', {
                     method: 'POST',
                     body: formData
                 });
@@ -143,7 +143,7 @@
             try{
                 let formData = new FormData();
                 formData.append("idCliente", localStorage.getItem("cliente"));
-                const response = await fetch('http://localhost/API_Concurso/respuestaUsr', {
+                const response = await fetch('http://3.92.77.152/API_Concurso/respuestaUsr', {
                     method: 'POST',
                     body: formData
                 });
@@ -178,7 +178,7 @@
                 let formData = new FormData();
                 formData.append("id", localStorage.getItem("cliente"));
                 formData.append("etapa", 3);
-                const response = await fetch('http://localhost/API_Concurso/etapa', {
+                const response = await fetch('http://3.92.77.152/API_Concurso/etapa', {
                     method: 'POST',
                     body: formData
                 });

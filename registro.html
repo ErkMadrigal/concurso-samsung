@@ -208,7 +208,7 @@
             try {
                 let formData = new FormData();
                 formData.append("ticket", ticket);
-                const response = await fetch('http://localhost/API_Concurso/ticket', {
+                const response = await fetch('http://3.92.77.152/API_Concurso/ticket', {
                     method: 'POST',
                     body: formData
                 });
@@ -253,7 +253,7 @@
                 } else {
                   let formData = new FormData(form);
                   formData.append("etapa", 1)
-                  const response = await fetch('http://localhost/API_Concurso/usuarios', {
+                  const response = await fetch('http://3.92.77.152/API_Concurso/usuarios', {
                       method: 'POST',
                       body: formData,
                   });
