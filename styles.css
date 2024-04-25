@@ -1,4 +1,16 @@
 body {
-    background: rgb(0,20,33);
+    margin: 0;
+    padding: 0;
+}
+
+.degradado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    background: rgb(0,20,33); 
     background: linear-gradient(0deg, rgba(0,20,33,1) 35%, rgba(0,122,174,1) 100%);
+    z-index: -1; 
+    overflow: auto;
 }
