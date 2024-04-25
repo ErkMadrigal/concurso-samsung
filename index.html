@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+  <body>
+    
+    <main>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="step-content">
+                  <div class="container mt-5 ">
+                      <p class="fw-bold fs-4 text-center">Regístrate y conoce lo nuevo de Samsung 2024</p>
+                      <div class="alert alert-danger d-flex align-items-center d-none" id="alertDanger" role="alert"></div>
+                      <div class="alert alert-dark text-center d-none" id="alert" role="alert">
+                        <h4 class="alert-heading">
+                          ¡Gracias por
+                          registrarte!
+                        </h4>
+                        <p>
+                          Muy pronto disfrutarás cada momento
+                          con más WOW.
+                        </p>
+                        <hr>
+                        <p class="mb-0">
+                          Recuerda utilizar tu cupón HRWOW24
+                          con valor de $1,000 al comprar tu nueva
+                          TV QLED I OLED en Preventa.
+                        </p>
+                      </div>
+                      <div class="card" id="cardForm">
+                          <div class="card-body">
+                              <p class="fw-lighter text-center">Todos los campos marcados con (*) son obligatorios.</p>
+                              <div id="loader" class="d-flex justify-content-center align-items-center d-none">
+                                <div class="spinner-border text-primary" role="status">
+                                  <span class="visually-hidden">Loading...</span>
+                                </div>
+                              </div>
+                              <form class="row needs-validation-register mt-3" novalidate>
+                                
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-3 form-check">
+                                  <label for="nombre" class="form-label fw-bold">Nombre <b class="text-danger">*</b></label>
+                                  <input type="text" class="form-control" id="nombre" name="nombre" required    placeholder="Ingrese su nombre">
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-3 form-check">
+                                  <label for="nombre" class="form-label fw-bold">Apellido <b class="text-danger">*</b></label>
+                                  <input type="text" class="form-control" id="apellido" name="apellido" required   placeholder="Ingrese su apellido">
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-3 form-check">
+                                  <label for="fecha_nacimiento" class="form-label fw-bold">Fecha de Naciemiento <b class="text-danger">*</b></label>
+                                  <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" required  placeholder="Formato: dd/mm/aaaa">
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-3 form-check">
+                                  <label for="telefono" class="form-label fw-bold">Telefono <b class="text-danger">*</b></label>
+                                  <input type="tel" class="form-control" id="telefono" name="telefono"  minlength="10" maxlength="13" placeholder="Formato: 123 456 7890" required>
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-3 form-check">
+                                  <label for="emial" class="form-label fw-bold">Email <b class="text-danger">*</b></label>
+                                  <input type="email" class="form-control" id="email" name="email" aria-describedby="emialHelp" required    placeholder="Ingrese su email">
+                                  <div id="emialHelp" class="form-text">Nunca compartiremos tu emial con nadie más.</div>
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-12 mb-3 form-check">
+                                  <label for="emial" class="form-label fw-bold">Confirmar Email <b class="text-danger">*</b></label>
+                                  <input type="email" class="form-control" id="confirmEmail" name="confirm-email" aria-describedby="emialHelp" required    placeholder="Confirmar email">
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+                                  <div id="emailMismatch" class="invalid-feedback d-none">Los correos electrónicos no coinciden.</div>
+
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 mb-3 form-check">
+                                  <label for="ticket" class="form-label fw-bold">Número de Ticket <b class="text-danger">*</b></label>
+                                  <input type="text" class="form-control" id="ticket" name="ticket" aria-describedby="numeroTicket" required  placeholder="Ingresa el número">
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+                                  <div id="emailMismatch" class="invalid-feedback d-none">Los correos electrónicos no coinciden.</div>
+
+                                </div>
+                                <!-- <div class="col-lg-12 col-md-12 col-sm-12 mb-3 form-check">
+                                  <label for="ticket" class="form-label fw-bold">imagen Ticket <b class="text-danger">*</b></label> <br>
+                                  <button class="btn btn-dark">Cargar</button>
+                                  <input type="text" class="form-control d-none" id="img-ticket" name="img-ticket" aria-describedby="emialHelp" required >
+                                  
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div>
+
+                                </div> -->
+                                <div class="col-lg-12 col-md-12 col-sm-12 m-3 form-check">
+                                  <input type="checkbox" class="form-check-input" id="tyc" name="tyc" required    placeholder="">
+                                  <label class="form-check-label" for="Terminos&Condiciones">Acepto la <a href="#">Política de Privacidad de Samsung *</a></label>
+                                  <div class="invalid-feedback">
+                                      Este campo es obligatorio.
+                                  </div> 
+
+                                  <button type="button" class="btn btn-dark rounded-pill float-end m-3" id="enviar">Registrar</button>
+                                </div>
+                                
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Navigation Buttons -->
+              <div class="text-center mt-4">
+                <button class="btn btn-dark rounded-pill next-step d-none" id="continuar">Continuar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      
+        let etapaSession = localStorage.getItem("etapa");
+        
+        let enviar = document.querySelector("#enviar");
+        let continuar = document.querySelector("#continuar");
+        let loader = document.querySelector("#loader");
+        let alert = document.querySelector("#alert");
+        let alertDanger = document.querySelector("#alertDanger");
+        let cardForm = document.querySelector("#cardForm");
+        let entrar = document.querySelector("#entrar");
+        let updateUrl = false; 
+        let ticket = document.querySelector("#ticket");
+    
+        const emailInput = document.getElementById('email');
+        const confirmEmailInput = document.getElementById('confirmEmail');
+        const emailMismatchMessage = document.getElementById('emailMismatch');
+
+        let idCliente = localStorage.getItem("cliente");
+        let etapa = localStorage.getItem("etapa");
+
+        if(idCliente === null){
+
+          localStorage.setItem("etapa", 0);
+
+        }
+
+        if(localStorage.getItem("etapa") == 0){
+          cardForm.classList.remove('d-none')
+          alert.classList.add('d-none')
+        }else{
+          cardForm.classList.add('d-none')
+          alert.classList.remove('d-none')
+          continuar.classList.remove('d-none')
+
+        }
+
+    
+        confirmEmailInput.addEventListener('input', function () {
+        if (emailInput.value !== confirmEmailInput.value) {
+                emailMismatchMessage.classList.remove('d-none');
+                confirmEmailInput.setCustomValidity('Los correos electrónicos no coinciden');
+            } else {
+                emailMismatchMessage.classList.add('d-none');
+                confirmEmailInput.setCustomValidity('');
+            }
+        });
+    
+          
+        const getEtapa = async (ticket) => {
+            try {
+                let formData = new FormData();
+                formData.append("ticket", ticket);
+                const response = await fetch('http://localhost/API_Concurso/ticket', {
+                    method: 'POST',
+                    body: formData
+                });
+                if (!response.ok) {
+                    throw new Error('Error en la solicitud: ' + response.status);
+                }
+                const responseData = await response.json();
+                if (!responseData || !responseData.data) {
+                    throw new Error('Respuesta inesperada del servidor');
+                }
+                localStorage.setItem("cliente", responseData.data.id);
+                localStorage.setItem("etapa", responseData.data.etapa);
+                return true;
+            } catch (error) {
+                console.error('Error en la función getEtapa:', error);
+                return false;
+            }
+        }
+
+        continuar.onclick = () => window.location.href = './caso1.html'
+
+        enviar.onclick = async (event) => {
+              event.preventDefault()
+              event.stopPropagation()
+    
+              loader.classList.remove('d-none')
+              enviar.setAttribute('disabled', 'disabled')
+    
+              const form = document.querySelector('.needs-validation-register');
+              if (!form.checkValidity()) {
+                  form.classList.add('was-validated');
+                  loader.classList.add('d-none')
+                  enviar.removeAttribute('disabled');
+    
+                  return;
+              }
+              
+              try {
+                const exito = await getEtapa(ticket.value);
+                if (exito) {
+                    updateUrl = true;
+                } else {
+                  let formData = new FormData(form);
+                  formData.append("etapa", 1)
+                  const response = await fetch('http://localhost/API_Concurso/usuarios', {
+                      method: 'POST',
+                      body: formData,
+                  });
+                  if(response.ok){
+                    const responseData = await response.json();
+                    updateUrl = true;
+                    localStorage.setItem("cliente", responseData.last_insert_id);
+                    localStorage.setItem("etapa", 1);
+                    console.log(responseData)
+  
+                  }else{
+                    updateUrl = false;
+      
+                    alertDanger.classList.remove('d-none')
+                    alertDanger.innerHTML = `<b>¡Oops! Tuvimos un error al tratar de registrar los datos </b>`
+                  }
+                }
+                  
+                
+              } catch (error) {
+                console.error(error)
+              }finally{
+                if(updateUrl){
+                  continuar.classList.remove('d-none')
+                  alert.classList.remove('d-none')
+                  cardForm.classList.add('d-none')
+                }else{
+                  loader.classList.add('d-none')
+                  enviar.removeAttribute('disabled');
+    
+                }
+              }
+        };
+
+      
+    });
+
+  
+</script>
+
+</html>
