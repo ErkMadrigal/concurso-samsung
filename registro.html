@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Llena tu casa de Samsung AI | Samsung México</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
   </head>
@@ -11,7 +11,7 @@
   <body>
     <nav class="navbar navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">Conoce más sobre <strong>BESPOKE AI</strong></a>
+        <a class="navbar-brand" href="https://www.samsung.com/mx/home-appliances/bespoke-home/">Conoce más sobre <strong>BESPOKE AI</strong></a>
       </div>
     </nav>
     <div class="degradado mt-5">
@@ -106,14 +106,14 @@
                                   </div>
   
                                 </div>
-                                <!-- <div class="col-lg-12 col-md-12 col-sm-12 mb-3 form-check">
-                                  <div class="card">
+                                <div class="col-lg-12 col-md-12 col-sm-12 mb-3 form-check">
+                                  <div class="card" id="btnImgTicket">
                                     <div class="card-body text-center">
                                       <p class="text-center fw-bolder" id="text_img">sube tu ticket</p>
-                                      <img src="./assets/icono_img.png" class="img-fluid" alt="ticket compra Samsung">
+                                      <img src="./assets/icono_img.png" id="imgPreview" class="img-fluid" alt="ticket compra Samsung">
                                     </div>
-                                  </div> -->
-                                  <!-- <input type="text" class="form-control d-none" id="img-ticket" name="img-ticket" aria-describedby="emialHelp" required > -->
+                                  </div>
+                                  <input type="file" class="form-control" accept="image/*" style="display: none;" id="img-ticket" name="img-ticket" aria-describedby="emialHelp" required >
                                   
                                   <div class="invalid-feedback">
                                       Este campo es obligatorio.
@@ -167,10 +167,12 @@
         let entrar = document.querySelector("#entrar");
         let updateUrl = false; 
         let ticket = document.querySelector("#ticket");
+        let img_ticket = document.querySelector("#img-ticket");
     
         // const emailInput = document.getElementById('email');
         // const confirmEmailInput = document.getElementById('confirmEmail');
         // const emailMismatchMessage = document.getElementById('emailMismatch');
+       
 
         let idCliente = localStorage.getItem("cliente");
         let etapa = localStorage.getItem("etapa");
@@ -203,12 +205,13 @@
         //     }
         // });
     
-          
+      
         const getEtapa = async (ticket) => {
             try {
                 let formData = new FormData();
                 formData.append("ticket", ticket);
-                const response = await fetch('http://3.92.77.152/API_Concurso/ticket', {
+                formData.append("opcion", "ticket");
+                const response = await fetch('http://localhost/API_Concurso/', {
                     method: 'POST',
                     body: formData
                 });
@@ -253,7 +256,9 @@
                 } else {
                   let formData = new FormData(form);
                   formData.append("etapa", 1)
-                  const response = await fetch('http://3.92.77.152/API_Concurso/usuarios', {
+                  formData.append("opcion", "usuarios");
+
+                  const response = await fetch('http://localhost/API_Concurso/', {
                       method: 'POST',
                       body: formData,
                   });
@@ -291,6 +296,22 @@
       
     });
 
+    let inputFile = document.querySelector("#img-ticket")
+    let img = document.querySelector("#imgPreview")
+
+    document.querySelector("#btnImgTicket").onclick = (e) => {
+      e.preventDefault()
+      inputFile.click()
+    }
+
+    inputFile.onchange = (e) => {
+        var reader = new FileReader();
+        reader.readAsDataURL(e.target.files[0]);
+        reader.onload = () => {
+            img.src = reader.result;
+        };
+    }
+          
   
 </script>
 
