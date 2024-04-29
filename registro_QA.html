@@ -127,11 +127,12 @@
           </div>
       </div>
       <div class="container text-center mt-5" id="imgform">
-        <form action="https://www.llenatucasadesamsung-ai.com/API_Concurso/ups3.php" method="post" enctype="multipart/form-data">
+        <form action="https://www.llenatucasadesamsung-ai.com/API_Concurso/ups3_QA.php" method="post" enctype="multipart/form-data">
           <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 mb-3 form-check">
               <div class="card" id="btnImgTicket">
                 <div class="card-body text-center">
+                    <div class="alert alert-danger d-flex align-items-center" id="cledencialesUSR" role="alert"></div>
                   <p class="text-center fw-bolder" id="text_img">sube tu ticket</p>
                   <img src="./assets/icono_img.png" id="imgPreview" style="max-width: 10rem;" class="img-fluid" alt="ticket compra Samsung">
                 </div>
@@ -173,6 +174,10 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
       
+        // alert('etapa'+sessionStorage.getItem('etapa'))
+        // alert('cliente'+sessionStorage.getItem('cliente'))
+
+
         let etapaSession = sessionStorage.getItem("etapa");
         
         let enviar = document.querySelector("#enviar");
@@ -195,8 +200,10 @@
         let cliente = sessionStorage.getItem("cliente");
         let etapa = sessionStorage.getItem("etapa");
 
-        if(cliente === null) sessionStorage.setItem("etapa", 0);
-
+        if(cliente === null) {
+            sessionStorage.setItem("etapa", 0);
+        }
+        
 
         if(sessionStorage.getItem("etapa") == 0){
           cardForm.classList.remove('d-none')
@@ -297,7 +304,7 @@
                     cardForm.classList.add('d-none')
                     alert.style.display = 'none'
                     document.querySelector("#input_idCliente").value = responseData.last_insert_id;
-                    
+                    document.querySelector("#cledencialesUSR").innerHTML = `<p>id Cliente: ${sessionStorage.getItem("cliente")} <br> Etapa ${sessionStorage.getItem("etapa")}</p>`
                   }else{
                     updateUrl = false;
       
@@ -324,6 +331,8 @@
 
       
     });
+
+    
 
     let inputFile = document.querySelector("#img-ticket")
     let img = document.querySelector("#imgPreview")
