@@ -94,7 +94,7 @@
             try {
 
                 let formData = new FormData();
-                formData.append("idCliente", sessionStorage.getItem("cliente"));
+                formData.append("idCliente", localStorage.getItem("cliente"));
                 formData.append("opcion", "respuesta");
 
                 const response = await fetch('https://www.llenatucasadesamsung-ai.com/API_Concurso/', {
@@ -109,8 +109,8 @@
                 if (!responseData) {
                     throw new Error('Respuesta inesperada del servidor');
                 }
-                sessionStorage.setItem("idRespuesta", responseData.idRespuesta);
-                sessionStorage.setItem("fechaInicio", responseData.fechaInicio);
+                localStorage.setItem("idRespuesta", responseData.idRespuesta);
+                localStorage.setItem("fechaInicio", responseData.fechaInicio);
             } catch (error) {
                 console.error('Error en la función openSesionRespuesta:', error);
             }finally{
@@ -123,7 +123,7 @@
             try {
 
                 let formData = new FormData();
-                formData.append("idRespuesta", sessionStorage.getItem("idRespuesta"));
+                formData.append("idRespuesta", localStorage.getItem("idRespuesta"));
                 formData.append("respuesta", respuesta);
                 formData.append("tipoRes", 1);
                 formData.append("opcion", "setRespuesta");
@@ -154,7 +154,7 @@
         const getRespuestaUsr = async () => {
             try{
                 let formData = new FormData();
-                formData.append("idCliente", sessionStorage.getItem("cliente"));
+                formData.append("idCliente", localStorage.getItem("cliente"));
                 formData.append("opcion", "respuestaUsr");
 
                 const response = await fetch('https://www.llenatucasadesamsung-ai.com/API_Concurso/', {
@@ -170,9 +170,9 @@
                     throw new Error('Respuesta inesperada del servidor');
                 }
                 if(responseData.data){
-                    sessionStorage.setItem("idRespuesta", responseData.data.id);
+                    localStorage.setItem("idRespuesta", responseData.data.id);
 
-                    sessionStorage.setItem("fechaInicio", responseData.data.fecha_inicio);
+                    localStorage.setItem("fechaInicio", responseData.data.fecha_inicio);
 
                 }else{
                     openSesionRespuesta()
@@ -190,7 +190,7 @@
         const setEtapa = async () => {
             try{
                 let formData = new FormData();
-                formData.append("id", sessionStorage.getItem("cliente"));
+                formData.append("id", localStorage.getItem("cliente"));
                 formData.append("etapa", 2);
                 formData.append("opcion", "etapa");
 
@@ -206,7 +206,7 @@
                     throw new Error('Respuesta inesperada del servidor');
                 }
                 if(responseData.status == 'ok'){
-                    sessionStorage.setItem("etapa", 2 );
+                    localStorage.setItem("etapa", 2 );
 
                 }
             } catch (error) {
@@ -233,13 +233,14 @@
                 if (!responseData || !responseData.data) {
                     throw new Error('Respuesta inesperada del servidor');
                 }
-                sessionStorage.setItem("etapa", responseData.data.etapa);
+                localStorage.setItem("etapa", responseData.data.etapa);
                 return true;
             } catch (error) {
                 console.error('Error en la función getEtapa:', error);
                 return false;
             }
         }
+
 
         let intervalo
         let contador = document.getElementById("contador")
@@ -254,7 +255,7 @@
 
 
        const iniciarContador = () => {
-           let fechaInicioString = sessionStorage.getItem("fechaInicio");
+           let fechaInicioString = localStorage.getItem("fechaInicio");
            let [fechaParte, horaParte] = fechaInicioString.split(' ');
        
            let tiempoInicial = new Date(`${fechaParte}T${horaParte}`).getTime();
@@ -292,7 +293,7 @@
                 clearInterval(intervalo)
                 asignarRespuesta(cantidad.value)
 
-                if(sessionStorage.getItem("etapa") != 1){
+                if(localStorage.getItem("etapa") != 1){
                     respuesta_Enviada.classList.add("d-none")
                     alert.classList.remove("d-none")
                     continuar.classList.remove("d-none")
@@ -309,11 +310,11 @@
         }
     
         window.onload = () => {
-            if(sessionStorage.getItem("cliente") === null){
+            if(localStorage.getItem("cliente") === null){
                 window.location.href = './index.html'
             }
 
-            if(sessionStorage.getItem("etapa") != 1){
+            if(localStorage.getItem("etapa") != 1){
                 respuesta_Enviada.classList.add("d-none")
                 alert.classList.remove("d-none")
                 continuar.classList.remove("d-none")
@@ -321,7 +322,7 @@
 
             getRespuestaUsr();
             
-        
+            
         }
 
         // continuar.onclick = (e) =>{
