@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Llena tu casa de Samsung AI | Samsung México</title>
+    <link rel="icon" type="image/png" href="./assets/Favicon.png" sizes="96x96"/>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
     
@@ -135,7 +136,7 @@
     </p>
     <p>
         La publicación de ganadores se dará a conocer en la página
-        www.llenatucasadesamsung-ai.com, en las siguientes fechas: Ganadores de la
+        <a href="https://www.llenatucasadesamsung-ai.com/">https://www.llenatucasadesamsung-ai.com/</a>, en las siguientes fechas: Ganadores de la
         primera determinación  6 de mayo de 2024, ganadores de la segunda
         determinación  20 de mayo de 2024, ganadores de la tercera determinación 3
         de junio de 2024.  Así como en las redes sociales de la marca.
@@ -176,7 +177,7 @@
         cuando  los domicilios no se encuentren dentro de los códigos postales en
         los que  Samsung no realiza entregas, los códigos postales donde Samsung no
         realiza  entregas podrán encontrarse en el link
-        llenatucasadesamsung-ai.com, para  dichos casos el participante deberá
+        <a href="https://www.llenatucasadesamsung-ai.com/codigos_postales.html">https://www.llenatucasadesamsung-ai.com/codigos_postales.html</a>, para  dichos casos el participante deberá
         proporcionar un domicilio con código postal  donde Samsung realiza entregas,
         en caso de que no se señale un domicilio dentro  del área en la que Samsung
         haga entrega, Samsung no estará obligado a realizar  la entrega y podrá ser
@@ -360,6 +361,9 @@
         www.samsung.com
     </p>
     </div>
+    <div class="text-center mt-4 mb-5">
+        <button class="btn btn-dark btn-lg rounded-pill next-step fw-bolder" id="inicio">Inicio</button>
+    </div>>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1TPN8XZT9T"></script>
@@ -369,6 +373,13 @@
         gtag('js', new Date());
 
         gtag('config', 'G-1TPN8XZT9T');
+
+        let inicio = document.querySelector("#inicio")
+
+
+       
+        inicio.onclick = () => window.location.href = './index.html'
+
     </script>
 </body>
 
